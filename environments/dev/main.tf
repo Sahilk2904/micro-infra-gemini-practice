@@ -40,7 +40,7 @@ locals {
       sku_tier            = try(pair.config.sku_tier, "Free")
       default_node_pool = {
         name                 = pair.config.default_node_pool.name
-        node_count           = try(pair.config.default_node_pool.node_count, 3)
+        node_count           = try(pair.config.default_node_pool.node_count, 1)
         vm_size              = try(pair.config.default_node_pool.vm_size, "Standard_DC2as_v5")
         os_disk_size_gb      = try(pair.config.default_node_pool.os_disk_size_gb, 30)
         auto_scaling_enabled = try(pair.config.default_node_pool.auto_scaling_enabled, false)

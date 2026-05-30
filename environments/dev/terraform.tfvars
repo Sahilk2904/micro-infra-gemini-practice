@@ -20,7 +20,7 @@ infra_config = {
         kubernetes_version = "1.33"
         default_node_pool = {
           name       = "system"
-          node_count = 2
+          node_count = 1
           vm_size    = "Standard_DC2as_v5"
         }
         extra_pools = {

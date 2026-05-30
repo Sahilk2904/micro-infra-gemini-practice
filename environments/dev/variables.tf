@@ -21,7 +21,7 @@ variable "infra_config" {
       sku_tier           = optional(string, "Free")
       default_node_pool = object({
         name                 = string
-        node_count           = optional(number, 3)
+        node_count           = optional(number, 1)
         vm_size              = optional(string, "Standard_DC2as_v5")
         os_disk_size_gb      = optional(number, 30)
         auto_scaling_enabled = optional(bool, false)
