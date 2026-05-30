@@ -23,6 +23,15 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
+      - name: Terraform Format
+        run: terraform fmt -check -recursive
+
+      - name: Terraform Init
+        run: terraform init -backend=false # Initialize without backend for validation
+
+      - name: Terraform Validate
+        run: terraform validate
+
       # 1. TFLint - Checks for cloud-specific best practices
       - name: Setup TFLint
         uses: terraform-linters/setup-tflint@v4

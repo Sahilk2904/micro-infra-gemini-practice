@@ -5,7 +5,7 @@ variable "infra_config" {
       location = string
       tags     = optional(map(string), {})
     })
-    
+
     registries = optional(map(object({
       sku           = optional(string, "Standard")
       admin_enabled = optional(bool, false)
@@ -40,7 +40,7 @@ variable "infra_config" {
 }
 
 variable "global_tags" {
-  type    = map(string)
+  type = map(string)
   default = {
     Environment = "Dev"
     Project     = "Advanced-Modular"

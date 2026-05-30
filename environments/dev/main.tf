@@ -11,7 +11,7 @@ locals {
           config = acr_val
         }
       ]
-    ]) : pair.key => {
+      ]) : pair.key => {
       name                = pair.key
       resource_group_name = pair.rg_key
       location            = try(var.infra_config[pair.rg_key].resource_group.location, "East US")
@@ -31,14 +31,14 @@ locals {
           config = aks_val
         }
       ]
-    ]) : pair.key => {
+      ]) : pair.key => {
       name                = pair.key
       resource_group_name = pair.rg_key
       location            = try(var.infra_config[pair.rg_key].resource_group.location, "East US")
       dns_prefix          = pair.config.dns_prefix
       kubernetes_version  = try(pair.config.kubernetes_version, "1.29")
       sku_tier            = try(pair.config.sku_tier, "Free")
-      default_node_pool   = {
+      default_node_pool = {
         name                 = pair.config.default_node_pool.name
         node_count           = try(pair.config.default_node_pool.node_count, 3)
         vm_size              = try(pair.config.default_node_pool.vm_size, "Standard_DS2_v2")
@@ -47,8 +47,8 @@ locals {
         min_count            = try(pair.config.default_node_pool.min_count, null)
         max_count            = try(pair.config.default_node_pool.max_count, null)
       }
-      extra_node_pools    = try(pair.config.extra_pools, {})
-      tags                = var.global_tags
+      extra_node_pools = try(pair.config.extra_pools, {})
+      tags             = var.global_tags
     }
   }
 }
@@ -61,7 +61,7 @@ module "resource_groups" {
 module "acrs" {
   source = "../../modules/acr"
   acrs   = local.acr_map
-  
+
   depends_on = [module.resource_groups]
 }
 
@@ -74,9 +74,9 @@ module "aks_clusters" {
 
 # Role Assignments
 resource "azurerm_role_assignment" "aks_acr_pull" {
-  for_each = { 
-    for k, v in local.aks_map : k => v 
-    if length(try(var.infra_config[v.resource_group_name].registries, {})) > 0 
+  for_each = {
+    for k, v in local.aks_map : k => v
+    if length(try(var.infra_config[v.resource_group_name].registries, {})) > 0
   }
 
   # Safely get the first registry ID for this Resource Group
