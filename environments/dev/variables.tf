@@ -22,7 +22,7 @@ variable "infra_config" {
       default_node_pool = object({
         name                 = string
         node_count           = optional(number, 3)
-        vm_size              = optional(string, "Standard_DS2_v2")
+        vm_size              = optional(string, "Standard_DC2as_v5")
         os_disk_size_gb      = optional(number, 30)
         auto_scaling_enabled = optional(bool, false)
         min_count            = optional(number, null)

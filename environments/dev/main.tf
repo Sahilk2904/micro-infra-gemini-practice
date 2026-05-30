@@ -41,7 +41,7 @@ locals {
       default_node_pool = {
         name                 = pair.config.default_node_pool.name
         node_count           = try(pair.config.default_node_pool.node_count, 3)
-        vm_size              = try(pair.config.default_node_pool.vm_size, "Standard_DS2_v2")
+        vm_size              = try(pair.config.default_node_pool.vm_size, "Standard_DC2as_v5")
         os_disk_size_gb      = try(pair.config.default_node_pool.os_disk_size_gb, 30)
         auto_scaling_enabled = try(pair.config.default_node_pool.auto_scaling_enabled, false)
         min_count            = try(pair.config.default_node_pool.min_count, null)

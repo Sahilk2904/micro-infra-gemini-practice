@@ -21,11 +21,11 @@ infra_config = {
         default_node_pool = {
           name       = "system"
           node_count = 2
-          vm_size    = "Standard_DS2_v2"
+          vm_size    = "Standard_DC2as_v5"
         }
         extra_pools = {
           "userpool" = {
-            vm_size    = "Standard_DS3_v2"
+            vm_size    = "Standard_DC2as_v5"
             node_count = 1
           }
         }
