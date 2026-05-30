@@ -17,7 +17,7 @@ variable "infra_config" {
 
     clusters = optional(map(object({
       dns_prefix         = string
-      kubernetes_version = optional(string, "1.29")
+      kubernetes_version = optional(string, "1.30")
       sku_tier           = optional(string, "Free")
       default_node_pool = object({
         name                 = string

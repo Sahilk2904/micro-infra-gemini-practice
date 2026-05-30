@@ -15,7 +15,7 @@ resource "azurerm_kubernetes_cluster" "this" {
   location            = each.value.location
   resource_group_name = each.value.resource_group_name
   dns_prefix          = each.value.dns_prefix
-  kubernetes_version  = try(each.value.kubernetes_version, "1.29")
+  kubernetes_version  = try(each.value.kubernetes_version, "1.30")
   sku_tier            = try(each.value.sku_tier, "Free")
   tags                = try(each.value.tags, {})
 

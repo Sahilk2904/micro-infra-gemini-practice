@@ -36,7 +36,7 @@ locals {
       resource_group_name = pair.rg_key
       location            = try(var.infra_config[pair.rg_key].resource_group.location, "East US")
       dns_prefix          = pair.config.dns_prefix
-      kubernetes_version  = try(pair.config.kubernetes_version, "1.29")
+      kubernetes_version  = try(pair.config.kubernetes_version, "1.30")
       sku_tier            = try(pair.config.sku_tier, "Free")
       default_node_pool = {
         name                 = pair.config.default_node_pool.name
