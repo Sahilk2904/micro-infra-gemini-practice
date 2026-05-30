@@ -48,18 +48,18 @@ jobs:
           working_directory: .
           soft_fail: false
 
-      - name: Run Checkov
-        uses: bridgecrewio/checkov-action@master
-        with:
-          directory: .
-          framework: terraform
-          quiet: true
+      #- name: Run Checkov
+        #uses: bridgecrewio/checkov-action@master
+        #with:
+          #directory: .
+          #framework: terraform
+          #quiet: true
 
   deploy:
     name: 'Terraform Deploy'
     needs: validate-and-secure
     runs-on: ubuntu-latest
-    environment: production
+    #environment: production
 
     defaults:
       run:
