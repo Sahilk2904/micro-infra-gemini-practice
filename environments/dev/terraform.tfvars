@@ -16,7 +16,8 @@ infra_config = {
     }
     clusters = {
       "aks-dev-01" = {
-        dns_prefix = "aksdev01"
+        dns_prefix         = "aksdev01"
+        kubernetes_version = "1.30"
         default_node_pool = {
           name       = "system"
           node_count = 2
