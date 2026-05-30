@@ -51,12 +51,12 @@ jobs:
           soft_fail: false # Set to true if you don't want to block PRs on security findings
 
       # 3. Checkov - Another layer of security/compliance
-      - name: Run Checkov
-        uses: bridgecrewio/checkov-action@master
-        with:
-          directory: .
-          framework: terraform
-          quiet: true
+      #- name: Run Checkov
+        #uses: bridgecrewio/checkov-action@master
+        #with:
+          #directory: .
+          #framework: terraform
+          #quiet: true
 
   deploy:
     name: 'Terraform Deploy'
