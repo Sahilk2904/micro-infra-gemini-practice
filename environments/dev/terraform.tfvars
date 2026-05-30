@@ -33,7 +33,7 @@ infra_config = {
     }
   }
 
-  "rg-dev-data-01" = {
+  "rg-dev-data-001" = {
     resource_group = {
       location = "West US"
     }
