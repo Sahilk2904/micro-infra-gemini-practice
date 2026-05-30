@@ -1,5 +1,5 @@
 infra_config = {
-  "rg-dev-app-01" = {
+  "rg-dev-app-001" = {
     resource_group = {
       location = "East US"
       tags     = { Dept = "IT" }
