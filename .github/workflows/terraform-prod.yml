@@ -59,7 +59,7 @@ jobs:
     name: 'Terraform Deploy'
     needs: validate-and-secure
     runs-on: ubuntu-latest
-    environment: production
+    #environment: production
 
     defaults:
       run:
